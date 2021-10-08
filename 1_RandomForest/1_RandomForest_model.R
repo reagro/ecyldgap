@@ -1,10 +1,11 @@
 
+# set the working directory to the root of this repo
 setwd(".")
 
 ### make RandomForest model 
 
 # read field trial data 
-d <- read.csv("yield_and_predictors.csv")
+d <- read.csv("data/input/yield_and_predictors.csv")
 
 # fit RandomForest model
 library(randomForest)
@@ -18,7 +19,7 @@ crf <- randomForest(m, data=d, importance=T)
 
 # predictor data
 library(terra)
-predictors <- rast("predictors.tif")
+predictors <- rast("data/input/predictors.tif")
 
 N <- c(seq(0,75,15), seq(100, 200, 25))
 K <- P <- N[1:7]
